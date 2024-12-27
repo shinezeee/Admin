@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <script src="signup.js" defer></script>
+
+</head>
+<body>
+  <button class="btn btn-secondary btn-sm" id="toggleDarkModeBtn" style="position: absolute; top: 20px; right: 20px; z-index: 1000;;">다크 모드</button>
+  <div class="container d-flex justify-content-center align-items-center min-vh-100">
+    <div class="card" style="width: 30rem;">
+      <div class="card-body ">
+        <h3 class="card-title">회원가입</h3>
+        <p class="card-text">회원가입을 위한 정보를 입력해주세요.</p>
+        <form id="signupForm">
+          <div class="mb-2"> 
+            <label for="userid" class="col-form-label">아이디</label> <!-- 아이디 입력 칸 -->
+            <input type="text" class="form-control" id="userid" placeholder="아이디" required>
+          </div>
+          <div class="mb-2">
+            <label for="password" class="col-form-label">비밀번호</label> <!-- 비밀번호 입력 칸 -->
+            <input type="password" class="form-control" id="password" placeholder="비밀번호" required>
+            <div id="passwordHelpBlock" class="form-text"> <!-- 비밀번호 입력 도움말 -->
+              * 영문, 숫자, 특수문자를 포함한 8자 이상 30자 미만
+            </div>
+          </div>
+          <div class="mb-2">
+            <label for="passwordConfirm" class="col-form-label">비밀번호 확인</label> <!-- 비밀번호 확인 입력 칸 -->
+            <input type="password" class="form-control" id="passwordConfirm" placeholder="비밀번호 확인" required>
+          </div>
+          <div class="mb-2">
+            <label for="name" class="col-form-label">이름</label> <!-- 이름 입력 칸 -->
+            <input type="text" class="form-control" id="name" placeholder="이름" required>
+          </div>
+          <div class="mb-2">
+            <label for="phone" class="col-form-label">전화번호</label> <!-- 전화번호 입력 칸 -->
+            <input type="tel" class="form-control" id="phone" placeholder="전화번호" required>
+          </div>
+          <div class="mb-2">
+            <label for="email" class="col-form-label">이메일</label> <!-- 이메일 입력 칸 -->
+            <input type="email" class="form-control" id="email" placeholder="이메일" required>
+          </div>
+          <div class="mb-2 row">
+            <label for="birthday" class="col-form-label col-sm-3">생년월일</label><!-- 생년월일 입력 칸 -->
+            <div class="col-sm-9">
+              <input type="date" class="form-control" id="birthday" value="1900-01-01" required>
+            </div>
+          </div>
+          
+          <div class="mb-2 row">
+            <label for="gender" class="col-form-label col-sm-3">성별</label> <!-- 성별  -->
+            <div class="col-sm-9">
+              <div class="d-flex align-items-center mt-2">
+                <div class="form-check me-3">
+                  <input class="form-check-input" type="radio" name="gender" id="male" value="남성" checked>
+                  <label class="form-check-label" for="male">남성</label>
+                </div>
+                <div class="form-check">
+                  <input class="form-check-input" type="radio" name="gender" id="female" value="여성">
+                  <label class="form-check-label" for="female">여성</label>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" type="submit">가입하기</button>
+            <button class="btn btn-secondary" type="button" onclick="window.history.back();">취소</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  <script>        
+    const toggleDarkModeBtn = document.getElementById('toggleDarkModeBtn');
+    toggleDarkModeBtn.addEventListener('click', () => {
+    if (document.body.getAttribute('data-bs-theme') === 'dark') {
+        document.body.removeAttribute('data-bs-theme');
+        toggleDarkModeBtn.textContent = '다크 모드';
+    } else {
+        document.body.setAttribute('data-bs-theme', 'dark');
+        toggleDarkModeBtn.textContent = '라이트 모드';
+    }
+    });</script>
+</body>
+</html>
